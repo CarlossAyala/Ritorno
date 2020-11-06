@@ -1,0 +1,61 @@
+<main id="main" class="container-fluid px-5">
+    <div class="card text-white bg-success mt-4">
+        <div class="card-body pt-2">
+            <h5 class="h3 text-center">Gracias por cooperar con nosotros</h5>
+            <p class="mb-0 text-justify">
+                Se mandó un mensaje al dueño de la mascota. Gracias a los datos que
+                proporcionó, el dueño se pondrá con contacto con usted. Nuevamente,
+                gracias por ayudarnos a reubicar a la mascota.
+            </p>
+            <p class="mb-0 text-justify">
+                A continuación, dejamos un informe sobre este reporte, dónde verá
+                los datos que introdujo a lo largo del reporte.
+            </p>
+        </div>
+    </div>
+    <div id="reporte-4" class="mt-5 mb-3 container-data-dark">
+        <h1 class="text-center" >Informe del reporte</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="text-center">Datos de contácto</h2>
+                <hr>
+                <div id="info-desc" class="my-auto flex-column">
+                    <div class="align-items-center pb-2">
+                        <span>Nombre:</span>
+                        <h3 class="m-0 pl-3">{{view.namePerson}}</h3>
+                    </div>
+                    <div class="align-items-center pb-2">
+                        <span>Celular:</span>
+                        <h3 class="m-0 pl-3">{{view.phonePerson}}</h3>
+                    </div>
+                    <div class="align-items-center pb-0">
+                        <span>Email:</span>
+                        <h3 class="m-0 pl-3">{{view.emailPerson}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="text-center">Información del perro</h2>
+                <hr>
+                <div class="d-flex justify-content-center pt-4">
+                    <div id="info-img">
+                        <img src="/img/{{view.photoDog}}" />
+                    </div>
+                    <div id="info-desc" class="p-4 my-auto">
+                        <div class="d-flex">
+                            <span>Nombre:</span>
+                            <h3 class="m-0 pl-3">{{view.nameDog}}</h3>
+                        </div>
+                        <div class="d-flex">
+                            <span>Código:</span>
+                            <h3 class="m-0 pl-3">{{view.codeDog}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="download">
+        <button class="btn btn-success">Descargar Informe</button>
+      </div>
+</main>

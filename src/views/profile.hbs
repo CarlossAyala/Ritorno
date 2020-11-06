@@ -1,0 +1,31 @@
+ <main id="my-data" class="container-fluid py-5 ">
+  <div class="d-flex justify-content-center">
+      <div>
+        <form class="container-data-light" action="/cuenta/update" method="POST" >
+          <h2 class="pt-3 text-center">Tus datos</h2>
+          <div class="form-group px-5">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" name="name" value="{{user.NAME}}" placeholder="Carlos Daniel">
+            <input name="id" type="hidden" value="{{user.ID}}">
+          </div>
+          <div class="form-group px-5">
+            <label for="surname">Apellido:</label>
+            <input type="text" class="form-control" name="surname" value="{{user.SURNAME}}" placeholder="Ayala">
+          </div>
+          <div class="form-group px-5">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="{{user.EMAIL}}" placeholder="carlosdaniel@gmail.com">
+          </div>
+          <div class="form-group px-5">
+            <label for="phone">Celular:</label>
+            <input type="number" class="form-control" name="phone" value="{{user.PHONE}}" placeholder="XXXX XXXXXX">
+          </div>
+          <button class="btn-green">Actualizar</button>
+        </form>
+        <div class="alert alert-secondary mb-0">
+          <h5 class="alert-heading text-center">¡ATENCIÓN!</h5>
+          <p class="mb-0 text-justify">Tus datos son usados cuando, al momento de que usted encuentre un perro extraviado, podamos usar estos datos para coordinar la reubicación de este.</p>
+        </div>
+      </div>  
+  </div>
+</main>

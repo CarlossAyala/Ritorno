@@ -1,0 +1,30 @@
+<main id="main" class="container-fluid px-5">
+      <div class="d-flex justify-content-center pb-5">
+        <div id="report-1">
+          <h1>Reportar un perro extraviado</h1>
+          <form class="container-data-light" action="/report-2" method="POST">
+            <h2 class="pt-3 pb-1 text-center">Código del perro:</h2>
+            <div class="form-group px-5">
+              <input
+                type="text"
+                class="form-control mx-auto mb-3"
+                placeholder="123456"
+                maxlength="6"
+                name="code"
+                autofocus
+              />
+            </div>
+            <button class="btn-red">Reportar</button>
+          </form>
+          <div class="alert alert-secondary mb-4">
+            <h5 class="alert-heading text-center">¡ATENCIÓN!</h5>
+            <p class="mb-0 text-justify">
+              Una vez introducido el código y haber reportado, aparecerán una(s)
+              Foto(s) del perro. Si coincide con el perro encontrado, porfavor,
+              rellene el formulario para poder devolverlo a su Hogar, tambíen se
+              pueden poner en contacto con la socursal más cercana.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>

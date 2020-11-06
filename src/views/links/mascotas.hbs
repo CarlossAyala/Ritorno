@@ -1,0 +1,119 @@
+<main id="my-pets" class="container-fluid px-5">
+    <div id="tittle">
+        <h1>Mis mascotas</h1>
+    </div>
+    <div id="contents" class="d-flex flex-wrap">
+
+        {{#each mascotas}}
+            <div class="content" data-id="{{ID}}">
+                <img class="img-content" src="{{PHOTO}}">
+                <div class="details text-center">
+                    <p class="name-dog">Nombre: <span> {{NAME}} </span></p>
+                    <p class="code-dog">Código: <span> {{ID}} </span></p>
+                    <p class="state-dog">Estado: <span> {{STATE}} </span> </p>
+                </div>
+                <a class="btn-ver d-block">Editar</a>
+            </div>
+        {{/each}}
+
+        <div class="add-content">
+            <div class="add">
+                <img class="img-add" src="/img/plus-circle.svg">
+                <span class="d-block">Agregar mascota</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="modalDogEdit">
+    <div class="modal-content">
+        <div id="tittle">
+            <h5>Perfil</h5>
+            <span id="close">x</span>
+        </div>
+        <div id="details">
+            <form class="Dog" action="/cuenta/mascotas/update" method="POST" >
+                <div class="img">
+                    <img onmouseout="overout()" src=""/>
+                    <div class="btn" >
+                        <i class='bx bx-sm bx-message-square-edit'></i>
+                        <span>Editar foto</span>
+                    </div>
+                    <input type="file" name="img">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="idDogEdit" id="idDogEdit">
+                    <label for="nameDogEdit" class="col-form-label">Nombre:</label>
+                    <input id="nameDogEdit" type="text" class="form-control" name="nameDogEdit" autofocus/>
+                </div>
+                <div class="form-group mb-0">
+                    <label for="state" class="col-form-label">Estado:</label>
+                    <select class="form-control" name="state" id="stateDogEdit">
+                        <option hidden selected>
+                            Selecciona el estado de su mascota
+                        </option>
+                        <option value="encasa">En casa</option>
+                        <option value="extraviado">Extraviado</option>
+                    </select>
+                </div>
+                <div id="buttons">
+                    <button id="update" class="btn btn-primary">Actualizar</button>
+                    <a id="delete" href="" class="btn btn-danger">Eliminar</a>
+                    <a id="cancel" href="" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+<div id="modalDogNew">
+    <div class="modal-content">
+        <div id="tittle">
+            <h5>Nueva mascota</h5>
+            <span id="close">x</span>
+        </div>
+        <div id="details">
+            <form class="Dog" action="/cuenta/mascotas/addpet" method="POST" enctype="multipart/form-data">
+                <div class="img">
+                    <img onmouseout="overout()" src="/img/photoDogs/default-profile.png"/>
+                    <div class="btn" >
+                        <i class='bx bx-sm bx-message-square-add'></i>
+                        <span>Seleccionar foto</span>
+                    </div>
+                    <input type="file" name="img">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Nombre:</label>
+                    <input type="text" class="form-control" name="name" placeholder="Ejemplo: Beto">
+                </div>
+                <div class="form-group mb-0">
+                    <label for="name" class="col-form-label">Estado:</label>
+                    <select class="form-control" name="state">
+                        <option hidden selected>
+                            Selecciona el estado de su mascota
+                        </option>
+                        <option value="encasa">En casa</option>
+                        <option value="extraviado">Extraviado</option>
+                    </select>
+                </div>
+                <div id="buttons">
+                    <button id="add" class="btn btn-success">Añadir</button>
+                    <a id="cancel" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="msg-alert" class="py-4">
+    <div class="alert alert-secondary mb-0">
+        <h5 class="alert-heading text-center">¡ATENCIÓN!</h5>
+        <p class="mb-0 text-justify">Asegúrese de colocar una buena foto de su mascota, ya que esta será usada
+            como foto de perfil, en caso de que se pierda.</p>
+        <p class="mb-0 text-justify">El Código de cada mascota es único, no se repite nunca.</p>
+    </div>
+</div>

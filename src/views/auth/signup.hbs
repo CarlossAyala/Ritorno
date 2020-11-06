@@ -1,0 +1,23 @@
+ <main id="signin" class="container-fluid pb-5 mb-4">
+      <div class="d-flex justify-content-center">
+        <form class="container-data-signin" action="/signup" method="POST">
+          <h5 class="text-center">ProyectoPet</h2>
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" name="name" placeholder="Ramiro">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" class="form-control" name="password"  placeholder="Ingresa tu contraseña">
+          </div>
+          <button class="btn-signin">Registrarse</button>
+          <div class="text-center">
+            <p>¿Ya tienes una cuenta? <a href="/signin"><span>Inciar Sesión</span></a></p>
+          </div>
+        </form>
+      </div>
+    </main>

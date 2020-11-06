@@ -1,0 +1,25 @@
+  <main id="main" class="container-fluid px-5 pb-5">
+    <div class="d-flex justify-content-center">
+    <div  id="report-2">
+        <h1>Reportar un perro extraviado</h1>
+        <form class="container-data-light" action="/report-3" method="POST">
+        <h2 class="pt-3 pb-1 text-center">Información del perro</h2>
+        <div id="name" class="container-data-dark">
+            <span>Nombre:</span>
+            <h3> {{dog.NAME}} </h3>
+            <input name="name" type="hidden" value="{{dog.NAME}}">
+            <input name="code" type="hidden" value="{{dog.ID}}">
+            <input name="photo" type="hidden" value="{{dog.PHOTO}}">
+        </div>
+        <h2 class="pt-3 pb-1 text-center">Fotos</h2>
+        <div class="images-re mx-auto">
+            <img src="/img/{{dog.PHOTO}}">
+        </div>
+        <div id="buttons" class="d-flex">
+            <button class="btn-green-f">Coincide</button>
+            <a href="/report-1" class="btn btn-red-e">No coincide</a>
+        </div>
+        </form>
+    </div>
+    </div>
+</main>

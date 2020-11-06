@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="49.652" viewBox="0 0 210 49.652">
+    <text transform="translate(108.652 32.566)" fill="#fff" font-size="28" font-family="Lato-Medium, Lato" font-weight="500">
+        <tspan x="-53.875" y="0">ProyectoPet</tspan>
+    </text>
+    <path d="M1474.268,1112.813a15.127,15.127,0,0,1-29.457,4.848h14.328v-9.7h-14.328a15.153,15.153,0,0,1,14.328-10.281v-9.7a24.826,24.826,0,1,0,24.826,24.826Z" transform="translate(-1434.313 -1087.987)" fill="#7bed8d"/>
+    <path d="M1535.947,1112.813h-9.7a15.146,15.146,0,0,0-15.129-15.129v-9.7A24.854,24.854,0,0,1,1535.947,1112.813Z" transform="translate(-1486.295 -1087.987)" fill="#7bed8d" opacity="0.501"/>
+</svg>

@@ -1,0 +1,37 @@
+<div id="end-page" class="container-fluid px-5 py-3">
+  <div class="row text-center d-flex justify-content-between">
+    <div class="col-sm-3">
+      <a href="/">
+        <img class="mx-auto d-block" src="/img/logo/logo.svg"/>
+      </a>
+      <p class="pt-1">Todos los Derechos Reservados 2020 ©</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Recursos</h3>
+      <div class="flex-column nav link-page">
+        <a href="/">Inicio</a>
+        <a href="/report">Contáctanos</a>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <h3>Acerca de</h3>
+      <div class="d-flex justify-content-center social-m">
+        <a href=""><img src="/img/redes-sociales/facebook.svg" alt="Icono de facebook" /> </a><a href=""><img
+            src="/img/redes-sociales/instagram.svg" alt="Icono de instagram" /> </a><a href=""><img
+            src="/img/redes-sociales/twitter.svg" alt="Icono de twitter" /></a>
+      </div>
+    </div>
+    <div class="col-sm-3 d-flex align-items-center justify-content-center">
+      {{#if user}}
+        <a class="btn-red" href="/logout">Cerrar Sesión</a>
+      {{else}}
+        <a class="btn-ir" href="/signin" >
+          Iniciar Sesión o Regístrate
+        </a>
+      {{/if}}
+    </div>
+  </div>
+</div>
+<div id="footer" class="container-fluid p-1">
+  <span>Página Creada por L.D.F Inc® Todos los Derechos Reservados 2020 ©</span>
+</div>

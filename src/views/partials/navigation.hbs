@@ -1,0 +1,18 @@
+<header id="header" class="container-fluid px-5 py-3">
+    <div class="d-flex justify-content-between">
+    <div>
+        <a href="/"><img src="/img/logo/logo.svg" alt=""/></a>
+    </div>
+    <div class="nav-our d-flex align-items-center">
+        {{#if user}}
+            <a href="/report-1">Reportar</a>
+            <a href="/cuenta/mascotas">Mis mascotas</a>
+            <a href="/profile">Mi cuenta</a>
+        {{else}}
+            <a href="/">Inicio</a>
+            <a href="/report-1">Reportar</a>
+            <a class="btn-ir btn" href="/signin" >Iniciar Sesión o Regístrate</a>
+        {{/if}}
+    </div>
+    </div>
+</header>
