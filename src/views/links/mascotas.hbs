@@ -6,7 +6,7 @@
 
         {{#each mascotas}}
             <div class="content" data-id="{{ID}}">
-                <img class="img-content" src="{{PHOTO}}">
+                <img src="{{PHOTO}}">
                 <div class="details text-center">
                     <p class="name-dog">Nombre: <span> {{NAME}} </span></p>
                     <p class="code-dog">Código: <span> {{ID}} </span></p>
@@ -32,14 +32,14 @@
             <span id="close">x</span>
         </div>
         <div id="details">
-            <form class="Dog" action="/cuenta/mascotas/update" method="POST" >
+            <form class="Dog" action="/cuenta/mascotas/update" method="POST" enctype="multipart/form-data" >
                 <div class="img">
                     <img onmouseout="overout()" src=""/>
-                    <div class="btn" >
+                    <div class="btn">
                         <i class='bx bx-sm bx-message-square-edit'></i>
-                        <span>Editar foto</span>
+                        <input type="file" name="img" class="inputfile" onchange="previewImgEdit(this)" >
+                        <label for="img">Editar foto</label>
                     </div>
-                    <input type="file" name="img">
                 </div>
                 <div class="form-group">
                     <input type="hidden" name="idDogEdit" id="idDogEdit">
@@ -75,14 +75,14 @@
             <span id="close">x</span>
         </div>
         <div id="details">
-            <form class="Dog" action="/cuenta/mascotas/addpet" method="POST" enctype="multipart/form-data">
+            <form class="Dog" action="/cuenta/mascotas/addpet" method="POST" enctype="multipart/form-data" >
                 <div class="img">
                     <img onmouseout="overout()" src="/img/photoDogs/default-profile.png"/>
-                    <div class="btn" >
-                        <i class='bx bx-sm bx-message-square-add'></i>
-                        <span>Seleccionar foto</span>
+                    <div class="btn">
+                        <i class='bx bx-sm bx-message-square-edit'></i>
+                        <input type="file" name="img" class="inputfile" onchange="previewImgNew(this)">
+                        <label for="img">Seleccionar foto</label>
                     </div>
-                    <input type="file" name="img">
                 </div>
                 <div class="form-group">
                     <label for="name" class="col-form-label">Nombre:</label>

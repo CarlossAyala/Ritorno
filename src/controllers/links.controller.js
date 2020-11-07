@@ -1,5 +1,7 @@
 const linksCtrl = {};
 const pool = require('../database');
+const multer = require('multer');
+
 
 // REPORT PET
 linksCtrl.renderReport1 = (req, res) => {
@@ -33,7 +35,7 @@ linksCtrl.sendReport4 = async (req, res) => {
         photoDog,
         namePerson,
         phonePerson,
-        emailPerson
+        emailPerson 
     }
     const informe = {
         ID_DOG: codeDog,
@@ -62,17 +64,17 @@ linksCtrl.updateProfile = async (req, res) => {
 
 linksCtrl.renderMascotas = async (req, res) => {
     const mascotas = await pool.query('SELECT * FROM dogs WHERE ID_OWNER = ?', [req.user.ID]);
+    //console.log(mascotas)
     res.render('links/mascotas', {mascotas})
 };
 
-
 linksCtrl.renderAddPet = async (req, res) => {
-    const { name, state, img } = req.body;
-    const pathPhoto = '/img/photoDogs/' + img;
+    const { name, state } = req.body;
+    const  img  = '/img/photoDogs/' + req.file.filename;
     const newDog = {
         ID_OWNER: req.user.ID,
         name,
-        PHOTO: pathPhoto,
+        PHOTO: img,
         STATE: state
     };
     await pool.query('INSERT INTO dogs set ?', newDog);
@@ -91,11 +93,12 @@ linksCtrl.renderDeletePet = async (req, res) => {
 
 linksCtrl.renderUpdatePet = async (req, res) => {
     const { idDogEdit, nameDogEdit, state} = req.body;
+    const  img  = '/img/photoDogs/' + req.file.filename;
     const ID = idDogEdit;
     const updateData = {
         ID_OWNER: req.user.ID,
         NAME: nameDogEdit,
-        PHOTO: 'xd',
+        PHOTO: img,
         STATE: state
     };
     await pool.query('UPDATE dogs set ? WHERE ID = ?', [updateData, ID]);
