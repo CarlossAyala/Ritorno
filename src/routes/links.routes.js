@@ -20,7 +20,7 @@ const upload = multer({storage}).single('img');
 const { renderReport1, sendReport2, sendReport3, sendReport4, updateProfile, renderMascotas, renderAddPet, renderDeletePet, renderUpdatePet } = require('../controllers/links.controller');
 
 // Authorization
-router.use(isLoggedIn);
+//router.use(isLoggedIn);
 
 //Reports - Routes
 router.get('/report-1', renderReport1);
@@ -30,7 +30,7 @@ router.post('/report-4', sendReport4);
 
 // Routes
 router.post('/cuenta/update', updateProfile);
-router.get('/cuenta/mascotas', isLoggedIn, renderMascotas);
+router.get('/cuenta/mascotas', renderMascotas);
 router.post('/cuenta/mascotas/addpet', upload, renderAddPet);
 router.get('/cuenta/mascotas/delete/:id',renderDeletePet);
 router.post('/cuenta/mascotas/update', upload, renderUpdatePet);

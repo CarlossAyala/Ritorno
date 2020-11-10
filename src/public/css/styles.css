@@ -267,8 +267,9 @@ input {
   color: white;
   font-weight: 500;
   border-radius: 3px;
-  border-color: white;
+  border: 1px solid white;
   padding: 5px 12px;
+  text-decoration: none;
 }
 #end-page .btn-ir:hover {
   background-color: white;

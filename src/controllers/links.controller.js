@@ -1,7 +1,5 @@
 const linksCtrl = {};
 const pool = require('../database');
-const multer = require('multer');
-
 
 // REPORT PET
 linksCtrl.renderReport1 = (req, res) => {
