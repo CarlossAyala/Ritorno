@@ -17,7 +17,7 @@ let storage = multer.diskStorage({
 });
 const upload = multer({storage}).single('img');
 
-const { renderReport1, sendReport2, sendReport3, sendReport4, updateProfile, renderMascotas, renderAddPet, renderDeletePet, renderUpdatePet } = require('../controllers/links.controller');
+const { renderReport1, sendReport2, sendReport3, sendReport4, updateProfile, renderMascotas, renderNotificaciones , renderAddPet, renderDeletePet, renderUpdatePet } = require('../controllers/links.controller');
 
 // Authorization
 //router.use(isLoggedIn);
@@ -31,6 +31,7 @@ router.post('/report-4', sendReport4);
 // Routes
 router.post('/cuenta/update', updateProfile);
 router.get('/cuenta/mascotas', renderMascotas);
+router.get('/cuenta/notificaciones', renderNotificaciones);
 router.post('/cuenta/mascotas/addpet', upload, renderAddPet);
 router.get('/cuenta/mascotas/delete/:id',renderDeletePet);
 router.post('/cuenta/mascotas/update', upload, renderUpdatePet);

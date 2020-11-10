@@ -66,6 +66,11 @@ linksCtrl.renderMascotas = async (req, res) => {
     res.render('links/mascotas', {mascotas})
 };
 
+linksCtrl.renderNotificaciones = async (req, res) => {
+    res.render('links/notify')
+};
+
+
 linksCtrl.renderAddPet = async (req, res) => {
     const { name, state } = req.body;
     const  img  = '/img/photoDogs/' + req.file.filename;
