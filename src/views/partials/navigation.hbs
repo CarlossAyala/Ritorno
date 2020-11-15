@@ -1,10 +1,14 @@
-<header id="header" class="container-fluid px-5 py-3">
+<header id="header" class="container-fluid px-5 py-2">
     <div class="d-flex justify-content-between">
-    <div>
-        <a href="/"><img src="/img/logo/logo.svg" alt=""/></a>
+    <div class="logo-us">
+        <a href="/">
+            <img src="/img/logo/logo.png"/>
+            <span>Ritorno</span>
+        </a>
     </div>
     <div class="nav-our d-flex align-items-center">
         {{#if user}}
+            <a href="/">Inicio</a>
             <a href="/report-1">Reportar</a>
             <a href="/cuenta/notificaciones">Notificaciones</a>
             <a href="/cuenta/mascotas">Mis mascotas</a>

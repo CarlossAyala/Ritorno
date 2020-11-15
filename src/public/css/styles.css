@@ -14,6 +14,53 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/*
+
+  Scroll
+
+*/
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width:5px;
+}
+
+::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button {
+  display: none;
+} 
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+/*
+
+  Nuestro Logo
+
+*/
+.logo-us a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+.logo-us img{
+  max-width: 65px;
+  width: 100%;
+}
+
+
+
 /* Botones */
 .btn-green {
   color: white;
@@ -143,8 +190,7 @@ input {
   font-weight: 500;
 }
 #home .social-m img {
-  width: 60px;
-  padding-left: 20px;
+  width: 40px;
 }
 
 /* ABOUT-US */
@@ -175,16 +221,18 @@ input {
   font-weight: 300;
 }
 #why-us .card {
+  width: 100%;
   background-color: transparent;
   color: white;
   border-color: white;
 }
 #why-us .card img {
-  width: 450px;
-  height: 300px;
+  width: 100%;
   border-radius: 3px;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-fit: cover;
+}
+#why-us .card .card-text{
+  text-align: justify;
 }
 
 /* CONTACT-US */
@@ -258,8 +306,7 @@ input {
   color: #bdbdbd;
 }
 #end-page .social-m img {
-  width: 50px;
-  padding-right: 20px;
+  width: 40px;
 }
 #end-page .btn-ir {
   background-color: transparent;
@@ -881,166 +928,102 @@ input {
   display: block;
 }
 
-/*** 
+/* 
   
   NOTIFICATIONS
 
-***/
+*/
+
+
 /* Main */
 #notify {
-  width: 100%;
-  height: 800px;
-  color: white;
-  margin-bottom: 30px;
-}
-#notify .tittle {
-  height: 8%;
-}
-#notify .tittle h1{
-  padding: 5px 0;
-  color: white;
-  font-size: 38px;
-  font-weight: 300;
-  text-align: center;
-}
-
-#notify .main-content{
-  display: flex;
-  height: 92%;
-  background-color: #1a1b1b;
-  border: 1px solid grey;
-}
-#notify .main-content #preview{
-  flex: 25%;
-  padding: 0;
-  flex-direction: column;
-  border-right: 1px solid grey;
-}
-#notify .main-content #preview header{
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #343a40;
-  border-bottom: 1px solid grey;
-}
-#notify .main-content #preview header h3{
-  margin: 0;
-  font-size: 30px;
-  font-weight: 300;
-  text-align: center;
-}
-#notify .main-content #preview .preview-info{
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; AGREGAR ESTO CON JS */
-  overflow-y: auto;
-  height: calc(100% - 90px);
-}
-#notify #preview .preview-info .content{
   display: flex;
   flex-direction: row;
-  height: 70px;
-  width: 100%;
-  border-bottom: 1px solid grey;
+  height: 600px;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
 }
-#notify #preview .preview-info .content:hover{
-  cursor: pointer;
-  background-color: #495057;
-}
-#preview .preview-info .content .photo{
-  display: flex;
-  padding: 0 10px;
-  flex: none;
-  align-items: center;
-  width: 20%;
-}
-.preview-info .content .photo img{
-  width: 50px;
-  height: 50px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.preview-info .content .info{
-  padding-left: 5px;
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.preview-info .content .number{
-  width: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#notify #preview .preview-info .clear{
-  margin: 20px 0;
-  text-align: center;
-}
-.main-content #moreInfo{
-  flex: 75%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.main-content #moreInfo .noClear{
+/* #notify .sidebar, */
+#notify .sidebar2{
+  border-radius: .5rem;
   height: 100%;
 }
-#moreInfo .header{
-  display: flex;
-  width: 100%;
-  height: 90px;
-  align-items: center;
-  background-color: #343a40;
-  border-bottom: 1px solid grey;
-}
-#moreInfo .header .photo{
-  display: flex;
-  padding: 0 20px 0 30px;
-  flex: none;
-  align-items: center;
-}
-#moreInfo .header img{
-  width: 70px;
-  height: 70px;
-  overflow: hidden;
-  position: relative;
-  border-radius: 50%;
-}
-#moreInfo .header .info{
+#notify .tittle{
   display: flex;
   flex-direction: column;
-}
-#moreInfo .reportes{
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: calc(100% - 90px);
-}
-#moreInfo .report {
-  margin: 15px 10px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  background-color: #495057;
-}
-#moreInfo .report .person p{
-  margin: 0;
-}
-#moreInfo .clear{
-  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  height: 110px;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border-bottom: 1px solid gray;
+}
+#notify .tittle h2{
+  font-weight: 300;
   text-align: center;
+  margin: 0;
 }
-#moreInfo .clear .clear-content{
-  width: 90%;
+#notify .main{
+  width: 100%;
+  flex-grow: 0;
+  height: 100%;
+  background-color: #2f2a30;
+  border-radius: .5rem;
 }
-#moreInfo .clear .clear-content img{
-  width: 50px;
-  height: 50px;
+#notify .main .dogsReport{
+  display: block;
+  height: calc(100% - 110px);
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+#notify .main .dogsReport .report{
+  display: flex;
+  flex-direction: column;
+  background-color: #29242a;
+  margin: 10px;
+  border-radius: .5rem;
+
+}
+#notify .main .dogsReport .report h4{
+  font-weight: 300;
+}
+#notify .main .dogsReport .report .info-report{
+  display: flex;
+  justify-content: space-around;
+}
+.info-report .sec-pers,
+.info-report .sec-dog{
+  background-color: #343a40;
+  border-radius: 10px;
+}
+.info-report .dog{
+  display: flex;
+}
+.info-report .dog img{
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+.info-report .dog .dog-info{
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.info-report .sec-pers .pers-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#notify .main .dogsReport .clear {
+  display: flex;
+  flex-direction: column;
+  margin-top: 170px;
+}
+#notify .main .dogsReport .clear img{
+  width: 40px;
+  height: 40px;
 }

@@ -1,5 +1,6 @@
 const linksCtrl = {};
 const pool = require('../database');
+const helpers = require('../lib/helpers');
 
 // REPORT PET
 linksCtrl.renderReport1 = (req, res) => {
@@ -9,10 +10,10 @@ linksCtrl.sendReport2 = async (req, res) => {
     const  { code } = req.body;
     const consulta = await pool.query('SELECT * FROM dogs WHERE ID = ?', [code]);
     const dog = consulta[0] ;
-    if (consulta[0] && consulta[0].STATE === 'extraviado') {
+    if (consulta[0]) {
         return  res.render('links/reports/report2', {dog});
     }else{
-        req.flash("message", "No hay ningún perro extraviado con este código, inténtalo nuevamente.");
+        req.flash("message", "No hay ningún perro con este código, inténtalo nuevamente.");
         res.redirect('/report-1');
     }
 };
@@ -67,18 +68,26 @@ linksCtrl.renderMascotas = async (req, res) => {
 };
 
 linksCtrl.renderNotificaciones = async (req, res) => {
-    res.render('links/notify')
+    const state =  'extraviado';
+
+    const dataMiss = await pool.query("select mdr.ID AS numReport, mdr.`NAME` AS namePers, mdr.PHONE AS phonePers, mdr.EMAIL AS emailPers, mdr.DATE_FOUND AS dataFound,dogs.ID AS codeDog, dogs.`NAME` AS nameDog, dogs.PHOTO AS photoDog, dogs.DATE AS dateMiss from mdr join dogs on mdr.ID_DOG=dogs.ID join owners on owners.ID=dogs.ID_OWNER WHERE owners.ID = ? AND dogs.STATE = ?",
+    [req.user.ID , state]);
+
+
+    res.render('links/notify', {dataMiss})
 };
 
 
 linksCtrl.renderAddPet = async (req, res) => {
     const { name, state } = req.body;
     const  img  = '/img/photoDogs/' + req.file.filename;
+    const date =  helpers.setDateDog(state);
     const newDog = {
         ID_OWNER: req.user.ID,
         name,
         PHOTO: img,
-        STATE: state
+        STATE: state,
+        DATE: date
     };
     await pool.query('INSERT INTO dogs set ?', newDog);
     req.flash('success', `Se añadió a ${name} correctamente ❤`)
@@ -98,11 +107,13 @@ linksCtrl.renderUpdatePet = async (req, res) => {
     const { idDogEdit, nameDogEdit, state} = req.body;
     const  img  = '/img/photoDogs/' + req.file.filename;
     const ID = idDogEdit;
+    const date =  helpers.setDateDog(state);
     const updateData = {
         ID_OWNER: req.user.ID,
         NAME: nameDogEdit,
         PHOTO: img,
-        STATE: state
+        STATE: state,
+        DATE: date
     };
     await pool.query('UPDATE dogs set ? WHERE ID = ?', [updateData, ID]);
     req.flash('success', `Se actualizó el perfil de ${nameDogEdit} correctamente 👍`)

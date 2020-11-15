@@ -1,8 +1,8 @@
+const {format} = require('timeago.js');
+
 const helpers = {};
 
-helpers.saveToPdf = () => {
-    
-};
+helpers.timeAgo = date => format(date);
 
 module.exports = helpers;
 

@@ -83,7 +83,7 @@ function mostrarModal(e) {
     leerInfoDog(dogSeleccionado);
   }
 }
-function mostrarModalNew(e) {
+function mostrarModalNew() {
   modalNew.style.display = "block";
 }
 //Extraer info del perro

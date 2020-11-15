@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-
 const helpers = {};
 
 helpers.encryptPassword = async (password) => {
@@ -14,6 +13,16 @@ helpers.matchPassword = async (password, savedPassword) => {
   } catch (e) {
     console.log(e)
   }
+};
+
+helpers.setDateDog = state => {
+  let date;
+  if (state === 'extraviado') {
+    date = new Date();
+  } else {
+    date = null;
+  }
+  return date;
 };
 
 module.exports = helpers;
