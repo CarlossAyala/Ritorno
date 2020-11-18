@@ -79,19 +79,26 @@ linksCtrl.renderNotificaciones = async (req, res) => {
 
 
 linksCtrl.renderAddPet = async (req, res) => {
-    const { name, state } = req.body;
-    const  img  = '/img/photoDogs/' + req.file.filename;
-    const date =  helpers.setDateDog(state);
-    const newDog = {
-        ID_OWNER: req.user.ID,
-        name,
-        PHOTO: img,
-        STATE: state,
-        DATE: date
-    };
-    await pool.query('INSERT INTO dogs set ?', newDog);
-    req.flash('success', `Se añadió a ${name} correctamente ❤`)
-    res.redirect('/cuenta/mascotas');
+    const validator = await helpers.checkAddPet(req.user.ID);
+    if (validator) {
+        console.log('entro')
+        const { name, state } = req.body;
+        const  img  = '/img/photoDogs/' + req.file.filename;
+        const date =  helpers.setDateDog(state);
+        const newDog = {
+            ID_OWNER: req.user.ID,
+            name,
+            PHOTO: img,
+            STATE: state,
+            DATE: date
+        };
+        await pool.query('INSERT INTO dogs set ?', newDog);
+        req.flash('success', `Se añadió a ${name} correctamente ❤`)
+        res.redirect('/cuenta/mascotas');
+    }else{
+        req.flash('message', `Haz alcanzado el límite de mascotas permitidas con tu Plan. Si quieres añadir más mascotas, actualiza tu plan`)
+        res.redirect('/cuenta/mascotas');
+    }
 };
 
 linksCtrl.renderDeletePet = async (req, res) => {
@@ -101,6 +108,33 @@ linksCtrl.renderDeletePet = async (req, res) => {
     req.flash('success', `Se eliminó a ${name[0].NAME} correctamente 💔`)
     res.redirect('/cuenta/mascotas');
     
+};
+
+linksCtrl.renderGetPlanes = async (req, res) => {
+    res.render('links/planes')
+};
+
+linksCtrl.setPlanToUser = async (req, res) => {
+    console.log(req.params)
+    let { plan , subplan } = req.params;
+    //Transforma la primera letra a mayuscula XD
+    function capitalize(word) {
+        return word[0].toUpperCase() + word.slice(1);
+    }
+    plan = capitalize(plan);
+    subplan = capitalize(subplan);
+    await pool.query('UPDATE owners set PLAN = ?, SUBPLAN = ? WHERE ID = ?', [plan , subplan, req.user.ID]);
+    req.flash('success', `Compraste el Plan ${plan} - ${subplan} ✔️`);
+    res.redirect('/cuenta/gastos');
+};
+
+linksCtrl.renderMisGastos = async (req, res) => {
+    const miPlan = await pool.query('SELECT PLAN, SUBPLAN from owners WHERE ID = ?', [req.user.ID]);;
+    const { SUBPLAN } = miPlan[0];
+    const subPlan = helpers.getPricePlan(miPlan[0]);
+    const price = helpers.getPriceSubplan(SUBPLAN,subPlan);
+    miPlan[0].priceSubplan = price;
+    res.render('links/gastos', { miPlan });
 };
 
 linksCtrl.renderUpdatePet = async (req, res) => {

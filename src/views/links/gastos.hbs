@@ -1,0 +1,88 @@
+
+
+<div class="container">
+    
+    <h2 class="display-4 mt-4 text-white text-center">Tus Gastos</h2>
+
+    <div class="row justify-content-center">
+        <div id="ticket" class="col-4 rounded-lg bg-light mr-4">
+            <div class="py-2">
+                <h4 class="mb-3">
+                    <span class="text-muted">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Tus gastos</font>
+                        </font>
+                    </span>
+                </h4>
+                <ul class="list-group mb-3">
+                    {{#each miPlan}}
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">
+                                    <font class="d-flex flex-column" style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;"><b>Plan {{PLAN}}</b></font>
+                                        <font style="vertical-align: inherit;">{{SUBPLAN}}</font>
+                                    </font>
+                                </h6>
+                            </div>
+                            <span class="text-success d-flex align-items-center">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">$ {{priceSubplan}}</font>
+                                </font>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Total</font>
+                                </font>
+                            </span>
+                            <strong>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">$ {{priceSubplan}}</font>
+                                </font>
+                            </strong>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="display-4 mt-4 text-white text-center">Otros</h2>
+
+    <div class="row mb-5 justify-content-center">
+        <div class="col-3 rounded-lg bg-light mr-4">
+            <div class="py-2 text-center">
+                <h4 class="mb-3">
+                    <span class="text-muted">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Cambiar Plan</font>
+                    </font>
+                    </span>
+                </h4>
+                <p class="card-text">Elige entre nuestros planes que se adaptan a tu bolsillo.</p>
+                <div class="text-center mb-2">
+                    <a href="/cuenta/planes" class="btn btn-primary">Ver Planes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 rounded-lg bg-light mr-4">
+            <div class="py-2 text-center">
+                <h4 class="mb-3">
+                    <span class="text-muted">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Descargar Ticket</font>
+                        </font>
+                    </span>
+                </h4>
+                <p class="card-text">Tal vez quieras tener un registro de tus actividades.</p>
+                <div class="text-center mb-2">
+                    <a onclick="downloadTicket()" class="btn btn-primary">Descargar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>  
